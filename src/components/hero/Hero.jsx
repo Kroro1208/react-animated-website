@@ -28,6 +28,20 @@ const textVariants = {
 
 }
 
+const sliderVariants = {
+    initial: {
+        x: 0,
+    },
+    animate: {
+        x: "-220%",
+        transition: {
+            repeat: Infinity,
+            repeatType: "mirror",
+            duration: 30,
+        }
+    },
+}
+
 const Hero = () => {
     return (
         <div className='hero'>
@@ -48,9 +62,12 @@ const Hero = () => {
                     </motion.div>
                 </motion.div>
             </div>
-            <div className='sliding-text-container'>
+            <motion.div className='sliding-text-container'
+                variants={sliderVariants}
+                initial="initial"
+                animate="animate">
                 Frontend Backend Shopify
-            </div>
+            </motion.div>
             <div className='image-container'>
                 <img src="/sns.png" alt="" />
             </div>
