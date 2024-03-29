@@ -1,3 +1,5 @@
+import { motion } from "framer-motion"
+
 const Links = () => {
     const items = [
         "Homepage",
@@ -11,7 +13,7 @@ const Links = () => {
         <div className="links">
             {
                 items.map((item) => (
-                    <a href={`#${item}`} key={item}>{item}</a>
+                    <motion.a href={`#${item}`} key={item} whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>{item}</motion.a>
                 ))
             }
         </div>
