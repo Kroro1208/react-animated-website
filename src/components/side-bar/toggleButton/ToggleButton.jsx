@@ -1,10 +1,12 @@
 import { SlMenu } from "react-icons/sl";
+import { MdClose } from "react-icons/md";
 
 
-const ToggleButton = ({ setOpen }) => {
+
+const ToggleButton = ({ open, setOpen }) => {
     return (
-        <button onClick={() => setOpen((prev) => !prev)}>
-            <SlMenu />
+        <button onClick={() => setOpen(!open)}>
+            {open ? <MdClose /> : <SlMenu />}
         </button>
     );
 
