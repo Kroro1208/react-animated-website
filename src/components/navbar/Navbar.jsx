@@ -3,19 +3,28 @@ import { FaFacebookSquare } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
 import { TfiYoutube } from "react-icons/tfi";
 import { PiTwitterLogoBold } from "react-icons/pi";
+import { motion } from "framer-motion"
 
 
 const Navbar = () => {
     return (
         <div className="navbar">
             <div className="wrapper">
-                <span>Wed Developer</span>
-                <div className="social">
+                <motion.span
+                    initial={{ opacity: 0, scale: 0.5 }}
+                    animate={{ opacity: 1, scale: 1.0 }}
+                    transition={{ duration: 1.2 }}
+                >Wed Developer</motion.span>
+                <motion.div className="social"
+                    initial={{ opacity: 0, scale: 0.5 }}
+                    animate={{ opacity: 1, scale: 1.0 }}
+                    transition={{ duration: 1.2 }}
+                >
                     <a href="#"><FaFacebookSquare /></a>
                     <a href="#"><FaInstagram /></a>
                     <a href="#"><TfiYoutube /></a>
                     <a href="#"><PiTwitterLogoBold /></a>
-                </div>
+                </motion.div>
             </div>
         </div>
 
