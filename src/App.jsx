@@ -1,4 +1,5 @@
 import "./app.scss";
+import Background from "./components/BackImg/Background";
 import Hero from "./components/hero/Hero";
 import Navbar from "./components/navbar/Navbar";
 
@@ -8,9 +9,9 @@ const App = () => {
       <Navbar />
       <Hero />
     </section>
-    <section id="Services">BackImage</section>
+    <section id="Services"><Background type="Services" /></section>
     <section>Service</section>
-    <section>BackImage2</section>
+    <section><Background type="Portfolio" /></section>
     <section id="Portfolio">Portfolio</section>
     <section>Portfolio2</section>
     <section>Portfolio3</section>
