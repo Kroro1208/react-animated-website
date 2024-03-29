@@ -5,9 +5,6 @@ import { TfiYoutube } from "react-icons/tfi";
 import { PiTwitterLogoBold } from "react-icons/pi";
 
 
-
-
-
 const Navbar = () => {
     return (
         <div className="navbar">
