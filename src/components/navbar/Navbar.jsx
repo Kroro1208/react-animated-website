@@ -4,11 +4,13 @@ import { FaInstagram } from "react-icons/fa";
 import { TfiYoutube } from "react-icons/tfi";
 import { PiTwitterLogoBold } from "react-icons/pi";
 import { motion } from "framer-motion"
+import SideBar from "../side-bar/Sidebar";
 
 
 const Navbar = () => {
     return (
         <div className="navbar">
+            <SideBar />
             <div className="wrapper">
                 <motion.span
                     initial={{ opacity: 0, scale: 0.5 }}
@@ -27,8 +29,7 @@ const Navbar = () => {
                 </motion.div>
             </div>
         </div>
-
-    )
+    );
 
 }
 
