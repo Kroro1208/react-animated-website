@@ -2,6 +2,7 @@ import "./app.scss";
 import Background from "./components/BackImg/Background";
 import Hero from "./components/hero/Hero";
 import Navbar from "./components/navbar/Navbar";
+import Portfolio from "./components/portfolio/Portfolio";
 import Services from "./components/services/Services";
 
 const App = () => {
@@ -12,10 +13,8 @@ const App = () => {
     </section>
     <section id="Services"><Background type="Services" /></section>
     <section><Services /></section>
-    <section><Background type="Portfolio" /></section>
-    <section id="Portfolio">Portfolio</section>
-    <section>Portfolio2</section>
-    <section>Portfolio3</section>
+    <section id="Portfolio"><Background type="Portfolio" /></section>
+    <Portfolio />
     <section id="Contact">contact</section>
   </div>;
 };
