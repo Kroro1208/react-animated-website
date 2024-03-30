@@ -25,13 +25,13 @@ const items = [
         id: 4,
         title: "Ordering System using Next.js, TypeScript",
         img: "/app2.jpg",
-        description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ea error, maiores quidem praesentium quo corporis vero laboriosam aliquam nihil corrupti obcaecati incidunt neque, reiciendis libero labore fugiat sequi quam officia!"
+        description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ea error, maiores quidem praesentium quo corporis vero laboriosam aliquam "
     },
 
 ];
 
 const Single = ({ item }) => {
-    const ref = useRef();
+    const ref = useRef(null);
     const { scrollYProgress } = useScroll({ target: ref });
     const y = useTransform(scrollYProgress, [0, 1], [-300, 300]);
     return (
@@ -53,11 +53,11 @@ const Single = ({ item }) => {
 }
 
 const Portfolio = () => {
-    const ref = useRef();
+    const ref = useRef(null);
     const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end end"], });
     const scaleX = useSpring(scrollYProgress, {
         stiffness: 100,
-        dumping: 30,
+        damping: 30,
     });
 
     return (
