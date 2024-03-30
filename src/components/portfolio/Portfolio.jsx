@@ -48,7 +48,6 @@ const Single = ({ item }) => {
                     </motion.div>
                 </div>
             </div>
-            {item.title}
         </section>
     );
 }
