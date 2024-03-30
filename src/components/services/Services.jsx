@@ -2,35 +2,34 @@ import React, { useRef } from 'react'
 import "./Services.scss"
 import { motion, useInView } from "framer-motion"
 
+const variants = {
+    initial: {
+        x: -500,
+        y: 100,
+        opacity: 0,
+    },
+    animate: {
+        x: 0,
+        y: 0,
+        opacity: 1,
+        transition: {
+            duration: 1,
+            staggerChildren: 0.1
+        }
+    },
+};
+
 const Services = () => {
 
     const ref = useRef();
-    const isINView = useInView(ref, { margin: "-100px" });
-
-    const variants = {
-        initial: {
-            x: -500,
-            y: 100,
-            opacity: 0,
-        },
-        animate: {
-            x: 0,
-            y: 0,
-            opacity: 1,
-            transition: {
-                duration: 1,
-                staggerChildren: 0.1
-            }
-        },
-    };
+    const isInView = useInView(ref, { margin: "-100px" });
 
     return (
         <motion.div className='services'
             variants={variants}
             initial="initial"
             ref={ref}
-            animate={isINView && "animate"
-            }
+            animate={isInView && "animate"}
         >
             {/* <div className='text-container'>
                 <p>
