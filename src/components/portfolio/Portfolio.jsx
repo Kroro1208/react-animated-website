@@ -1,11 +1,11 @@
 import React, { useRef } from 'react'
 import "./Portfolio.scss"
-import { motion, useScroll, useSpring } from "framer-motion"
+import { motion, useScroll, useSpring, useTransform } from "framer-motion"
 
 const items = [
     {
         id: 1,
-        title: "React Commerce",
+        title: "React E-Commerce",
         img: "/react.jpg",
         description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ea error, maiores quidem praesentium quo corporis vero laboriosam aliquam nihil corrupti obcaecati incidunt neque, reiciendis libero labore fugiat sequi quam officia!"
     },
@@ -31,7 +31,26 @@ const items = [
 ];
 
 const Single = ({ item }) => {
-    return <section>{item.title}</section>;
+    const ref = useRef();
+    const { scrollYProgress } = useScroll({ target: ref });
+    const y = useTransform(scrollYProgress, [0, 1], [-300, 300]);
+    return (
+        <section>
+            <div className='container'>
+                <div className='wrapper'>
+                    <div className="image-container" ref={ref}>
+                        <img src={item.img} alt="" />
+                    </div>
+                    <motion.div className='text-container' style={{ y }}>
+                        <h2>{item.title}</h2>
+                        <p>{item.description}</p>
+                        <motion.button whileHover={{ background: "gray", color: "black" }}>See Project</motion.button>
+                    </motion.div>
+                </div>
+            </div>
+            {item.title}
+        </section>
+    );
 }
 
 const Portfolio = () => {
@@ -49,7 +68,7 @@ const Portfolio = () => {
                 <motion.div style={{ scaleX }} className='progress-bar'></motion.div>
             </div>
             {items.map((item) => (
-                <Single item={item.title} key={item.id} />
+                <Single item={item} key={item.id} />
             ))}
         </div>
     );
