@@ -1,6 +1,7 @@
-import React, { useRef } from 'react'
+import React, { useRef, useState } from 'react'
 import "./Contact.scss"
 import { motion, useInView } from "framer-motion"
+import emailjs from "@emailjs/browser";
 
 const variants = {
     initial: {
@@ -20,7 +21,30 @@ const variants = {
 const Contact = () => {
 
     const ref = useRef(null);
+    const formRef = useRef(null);
+    const [error, setError] = useState(null);
+    const [success, setSuccess] = useState(null);
+
+
     const isInView = useInView(ref, { margin: "-100px" })
+    const sendEmail = (e) => {
+        e.preventDefault();
+
+        emailjs
+            .sendForm('service_mnlw8oi', 'template_x4nfmrw', formRef.current, {
+                publicKey: 'r48m0uYsCIYJ_ye1q',
+            })
+            .then(
+                (result) => {
+                    setSuccess(true);
+                },
+                (error) => {
+                    setError(true);
+                },
+            );
+    };
+
+
     return (
         <motion.div className='contact'
             ref={ref}
@@ -62,14 +86,19 @@ const Contact = () => {
                     </svg>
                 </motion.div>
                 <motion.form
+                    ref={formRef}
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
                     transition={{ delay: 4, duration: 1 }}
+                    onSubmit={sendEmail}
                 >
-                    <input type="text" placeholder='Name' />
-                    <input type="email" placeholder='Email' />
-                    <textarea cols="30" rows="8" placeholder='Message' />
-                    <motion.button whileHover={{ background: "gray", color: "white" }}>Submit</motion.button>
+                    <input type="text" placeholder='お名前' name="name" />
+                    <input type="email" placeholder='メールアドレス' name="email" />
+                    <input type="text" placeholder='タイトル' name="subject" />
+                    <textarea cols="30" rows="8" placeholder='Message' name="message" />
+                    <motion.button whileHover={{ background: "gray", color: "white" }}>送信する</motion.button>
+                    {error && "メールの送信に失敗しました"}
+                    {success && "メールの送信に成功しました"}
                 </motion.form>
             </div>
         </motion.div>
