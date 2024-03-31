@@ -28,7 +28,8 @@ const Services = () => {
             variants={variants}
             initial="initial"
             ref={ref}
-            animate={isInView && "animate"}
+            animate={isInView ? "animate" : "initial"}
+        // transition={{ duration: 2, delay: 2, ease: 'ease-in' }}
         >
             {/* <div className='text-container'>
                 <p>
@@ -48,7 +49,7 @@ const Services = () => {
                 </div>
             </motion.div >
             <motion.div className='list-container'>
-                <motion.div className='box' whileHover={{ background: "gray", color: "black" }}>
+                <motion.div className='box' whileHover={{ background: "gray", color: "black", transition: { duration: 3 } }} >
                     <h2>Branding</h2>
                     <p>
                         Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sed ducimus non eum quaerat ullam blanditiis rerum exercitationem magni. Nostrum atque saepe odit laboriosam ad dolorum ut quibusdam id voluptatibus sunt?

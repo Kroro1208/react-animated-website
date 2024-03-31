@@ -1,3 +1,5 @@
+@import "../../app.scss";
+
 .services {
   background: linear-gradient(180deg, rgb(42, 44, 67), rgb(49, 45, 83));
   height: 100%;
@@ -12,6 +14,12 @@
     align-items: center;
     gap: 20px;
 
+    @include mobile {
+      align-self: center;
+      text-align: center;
+      flex-direction: column;
+    }
+
     p {
       font-weight: 200;
       font-size: 20px;
@@ -24,6 +32,9 @@
       border: none;
       border-top: 0.5px solid red;
     }
+    @include mobile {
+      width: 300px;
+    }
   }
 
   .title-container {
@@ -32,23 +43,38 @@
     flex-direction: column;
     align-items: center;
     margin-bottom: 40px;
+    @include mobile {
+      width: 100%;
+    }
 
     .title {
       display: flex;
       align-items: center;
       gap: 50px;
       margin-bottom: 20px;
+      @include mobile {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+      }
 
       img {
         width: 300px;
         height: 100px;
         border-radius: 50px;
         object-fit: cover;
+        @include mobile {
+          width: 200px;
+          height: 50px;
+        }
       }
 
       h1 {
         font-size: 96px;
         font-weight: 100;
+        @include mobile {
+          font-size: 36px;
+        }
       }
 
       button {
@@ -59,6 +85,12 @@
         border: none;
         font-size: 24px;
         cursor: pointer;
+
+        @include mobile {
+          font-size: 16px;
+          width: 200px;
+          height: 50px;
+        }
       }
     }
   }
@@ -69,6 +101,10 @@
     max-width: 1366px;
     margin: auto;
     gap: 20px;
+    @include mobile {
+      width: 100%;
+      flex-direction: column;
+    }
 
     .box {
       padding: 50px;
@@ -78,12 +114,33 @@
       justify-content: space-between;
       border-radius: 30px;
 
+      @include mobile {
+        border: none;
+        align-items: center;
+        gap: 20px;
+        padding: 10px;
+      }
+
+      p {
+        @include mobile {
+          display: none;
+        }
+      }
+
       button {
         padding: 10px;
         background-color: #647df6;
         border: none;
         cursor: pointer;
         border-radius: 50px;
+
+        @include mobile {
+          background-color: transparent;
+          border: 1px solid orange;
+          color: white;
+          width: 50%;
+          padding: 5px;
+        }
       }
     }
   }
