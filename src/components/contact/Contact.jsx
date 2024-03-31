@@ -54,15 +54,15 @@ const Contact = () => {
             <motion.div className='text-container' variants={variants}>
                 <motion.h1 variants={variants}>Let's Work Together</motion.h1>
                 <motion.div className="item" variants={variants}>
-                    <h2>Mail</h2>
+                    <h2>メールアドレス</h2>
                     <span>yamagata_7580@yahoo.co.jp</span>
                 </motion.div>
                 <motion.div className="item" variants={variants}>
-                    <h2>Address</h2>
+                    <h2>所在地</h2>
                     <span>東京都港区麻布十番7-7-7</span>
                 </motion.div>
                 <motion.div className="item" variants={variants}>
-                    <h2>Phone</h2>
+                    <h2>電話番号</h2>
                     <span>03-1234-5678</span>
                 </motion.div>
             </motion.div>
@@ -73,8 +73,8 @@ const Contact = () => {
                     transition={{ delay: 3, duration: 1 }}
                 >
                     <svg
-                        width="450px"
-                        height="450px"
+                        width="400px"
+                        height="400px"
                         viewBox="0 0 64 64">
                         <motion.path
                             initial={{ pathLength: 0 }}
@@ -95,7 +95,7 @@ const Contact = () => {
                     <input type="text" placeholder='お名前' name="name" />
                     <input type="email" placeholder='メールアドレス' name="email" />
                     <input type="text" placeholder='タイトル' name="subject" />
-                    <textarea cols="30" rows="8" placeholder='Message' name="message" />
+                    <textarea cols="30" rows="8" placeholder='お問い合わせ内容' name="message" />
                     <motion.button whileHover={{ background: "gray", color: "white" }}>送信する</motion.button>
                     {error && "メールの送信に失敗しました"}
                     {success && "メールの送信に成功しました"}
