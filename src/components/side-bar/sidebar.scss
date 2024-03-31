@@ -13,8 +13,7 @@
     left: 0;
     bottom: 0;
     width: 400px;
-    background: rgb(29, 28, 28);
-    opacity: 0.7;
+    background: rgb(225, 219, 219);
 
     .links {
       position: absolute;
@@ -25,7 +24,7 @@
       align-items: center;
       justify-content: center;
       gap: 20px;
-      color: white;
+      color: rgb(46, 44, 44);
 
       a {
         font-size: 40px;
